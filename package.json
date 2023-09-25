@@ -1,0 +1,27 @@
+{
+  "name": "chat-socket",
+  "version": "1.0.0",
+  "description": "demo web app using socket io backend and react frontend for real time chat!",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Hussseinkizz/socket-chat.git"
+  },
+  "keywords": [
+    "realtime",
+    "chat",
+    "socket",
+    "io",
+    "chat",
+    "react"
+  ],
+  "author": "Husseinkizz",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Hussseinkizz/socket-chat/issues"
+  },
+  "homepage": "https://github.com/Hussseinkizz/socket-chat#readme"
+}
