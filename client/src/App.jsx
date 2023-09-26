@@ -2,7 +2,7 @@ import { HiPaperAirplane } from 'react-icons/hi';
 import { ReceivedMessage } from './components/received-message';
 import { SentMessage } from './components/sentMessage';
 import { io } from 'socket.io-client';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 const App = () => {
   const [messages, setMessages] = useState([]);

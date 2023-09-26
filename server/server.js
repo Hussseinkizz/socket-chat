@@ -14,18 +14,20 @@ const io = new Server(server, {
   cors: { origin: '*' },
 });
 
-const bundle = '5';
+const bundle = '6';
 let count = bundle * 1;
+let sendUsage = true;
+
+// first store the message then send it to client
+let newServerMessage = {
+  id: userMessages.length + 1,
+  type: 'outgoing',
+  text: 'Hello from server',
+  time: Date.now().toLocaleString(),
+};
 
 io.on('connection', (socket) => {
   // sending message to client
-  // first store the message then send it to client
-  let newServerMessage = {
-    id: userMessages.length + 1,
-    type: 'outgoing',
-    text: 'Hello from server!',
-    time: Date.now().toLocaleString(),
-  };
 
   // for simulation auto send message after every 3secs
   // let count = 1;
@@ -33,6 +35,15 @@ io.on('connection', (socket) => {
   //   userMessages.push(newServerMessage);
   //   socket.emit('receiveNewMessage', `${newServerMessage.text} ${count++}`);
   // }, 3000);
+  if (sendUsage) {
+    console.log(`Client has ${bundle} messages to go!`);
+    userMessages.push(newServerMessage);
+    socket.emit(
+      'receiveNewMessage',
+      `${newServerMessage.text}, you ${bundle} messages to go!`
+    );
+  }
+  sendUsage = false;
 
   // recieve message from client
   socket.on('newMessage', (data) => {
